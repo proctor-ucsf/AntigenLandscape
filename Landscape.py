@@ -31,7 +31,7 @@ class Landscape:
             result += "\n"
         return result
     
-    def graph(self):
+    def graph(self, show_clock=False):
         fig = plt.figure()
         ax = fig.add_subplot(111, projection='3d')
         x = np.linspace(0, self.width, 100)
@@ -51,6 +51,8 @@ class Landscape:
         ax.set_xlabel('X Position')
         ax.set_ylabel('Y Position')
         ax.set_zlabel('Antigen Response')
+        if show_clock:
+            ax.set_title(f'Clock: {self.clock}', fontsize=8)
         plt.show()
 
     def clear_new_ants_arr(self):
